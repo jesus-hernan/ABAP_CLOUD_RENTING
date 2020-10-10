@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+annotate view ztcds_cars with
+{
+  @UI.facet      : [{id:'DetallesVehiculo', label:'Detalles del Vehiculo', type:#COLLECTION, position:10},
+                    {id:'Vehiculo', parentId:'DetallesVehiculo',label:'Detalles',type:#FIELDGROUP_REFERENCE,targetQualifier:'DetallesVehiculo',
+                     position:10},
+                    {id:'Clientes', label:'Clientes', type:#LINEITEM_REFERENCE, targetElement:'_DetCustomer', position:10}
+                    ]
+  @UI.fieldGroup : [{qualifier:'DetallesVehiculo', position:10}]
+  Matricula;
+  @Consumption.valueHelpDefinition : [{entity: {name:'ztcds_brands', element:'Marca'}}]
+  @UI: { lineItem: [{position:1, importance: #HIGH}],
+         selectionField : [{position :10}]}
+  Marca;
+  @Search.defaultSearchElement  : true
+  @Search.fuzzinessThreshold    : 0.9
+  @Search.ranking               : #HIGH
+  @UI: { lineItem: [{position: 20, importance: #HIGH}]}
+  Modelo;
+  @UI: { lineItem: [{position: 30, importance: #HIGH}]}
+  Color;
+  @UI: { lineItem: [{position: 40, importance: #HIGH}],
+         selectionField: [{position :20}]}
+  Motor;
+  @UI: { lineItem: [{position: 50, importance: #HIGH}]}
+  Potencia;
+  @UI: { lineItem: [{position: 60, importance: #HIGH}]}
+  Precio;
+  @UI: { lineItem: [{position: 70, importance: #HIGH}]}
+  Moneda;
+  @UI: { lineItem: [{position: 80, importance: #HIGH}]}
+  Alquilado;
+  @UI.fieldGroup : [{qualifier:'DetallesVehiculo', position:20}]
+  Combustible;
+  @UI.fieldGroup : [{qualifier:'DetallesVehiculo', position:30}]
+  Consumo;
+  @UI.fieldGroup : [{qualifier:'DetallesVehiculo', position:40}]
+  FechaFabricacion;
+  @UI.fieldGroup : [{qualifier:'DetallesVehiculo', position:50}]
+  Puertas;
+  @UI.lineItem   : [{position:90, importance:#HIGH, criticality:'TiempoRenta'}]
+  TiempoRenta;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Renting'
+define service ZTSD_RENTING {
+  expose ztcds_cars as cars;
+  expose ZTCDS_DET_CUST as DetCustomers;
+}
